@@ -182,6 +182,11 @@ nlp2imgl apply "wpisz opisz projekt w Chat input" --image screen.png --window re
 nlp2imgl apply "naciśnij ctrl+enter" --execute
 ```
 
+MCP generuje DSL bez wykonywania go (`execute=false`). Sterowanie pulpitem przez
+`imgl_run_command` lub `imgl_apply_nl(..., execute=true)` wymaga uruchomienia
+serwera z `IMGL_MCP_ALLOW_EXECUTE=1` i powinno być udostępniane tylko zaufanym
+klientom.
+
 Z **Koru** (w `koru/.venv`, nie `imgl/.venv`):
 
 ```bash
