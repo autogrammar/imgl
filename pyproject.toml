@@ -45,8 +45,8 @@ diagnose = [
     "numpy>=1.24",
 ]
 llm = [
-    "litellm>=1.30",
     "python-dotenv>=1.0",
+    "subactor-subllm @ git+https://github.com/subactor/subllm.git@067732fcd2fab3b36453160bb4497012b13bc298",
 ]
 web = [
     "fastapi>=0.110",
