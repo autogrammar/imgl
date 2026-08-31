@@ -6,6 +6,7 @@ import base64
 import json
 import os
 import re
+import sys
 from io import BytesIO
 from pathlib import Path
 from typing import Any
@@ -86,6 +87,8 @@ def llm_available() -> bool:
 
 
 def llm_dependencies_ok() -> tuple[bool, str | None]:
+    if sys.version_info < (3, 11):
+        return False, "SubLLM vision requires Python 3.11+"
     try:
         _subllm_complete()
     except ImportError:
