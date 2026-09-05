@@ -11,3 +11,7 @@
 | [web-ui.md](web-ui.md) | `imgl serve` — tryb manualny i agent |
 
 Szybki start: [../examples/README.md](../examples/README.md)
+
+## Automatyzacja repozytorium
+
+- [Synchronizacja metadanych](information/org-metadata-sync.md) — koordynator, harmonogram i diagnostyka.
