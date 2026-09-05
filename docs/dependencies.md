@@ -28,3 +28,5 @@ This change updates the internal packages to the registry targets observed on 20
 The test configuration exposes the repository-owned MCP adapter source for its execution-permission test. Optional control packages remain optional. Timestamp generation uses `timezone.utc`, which supports the declared Python 3.10 minimum.
 
 The test runner installs the system Tesseract executable and English/Polish language data before the OCR/web integration tests. The Python `ocr` extra supplies the wrapper only. On Debian/Ubuntu, install `tesseract-ocr tesseract-ocr-eng tesseract-ocr-pol` before running this suite locally.
+
+The `main-supervised-autonomy` GitHub ruleset requires a successful `test` check and an independent approval of the latest push. The aggregate `test` job fails unless every Python matrix job succeeds. Merge uses the repository-required merge commit method after review.
