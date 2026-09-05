@@ -6,7 +6,7 @@ import json
 import os
 import shutil
 import subprocess
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -77,7 +77,7 @@ def default_capture_path(out: str | Path | None = None) -> Path:
         path = Path(out).expanduser()
         path.parent.mkdir(parents=True, exist_ok=True)
         return path
-    ts = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     path = Path.home() / ".imgl" / "captures" / f"screen_{ts}.png"
     path.parent.mkdir(parents=True, exist_ok=True)
     return path
