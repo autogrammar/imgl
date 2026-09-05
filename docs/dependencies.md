@@ -26,3 +26,5 @@ The second command selects an automation environment; use a separate UV_PROJECT_
 This change updates the internal packages to the registry targets observed on 2026-09-05, preserves application Python support and adds the scheduled checks above. Test and publication results are recorded in this repository's PR and Actions checks. The ecosystem rollout history is maintained in [costs documentation](https://github.com/semcod/costs/tree/main/docs/dependencies).
 
 The test configuration exposes the repository-owned MCP adapter source for its execution-permission test. Optional control packages remain optional. Timestamp generation uses `timezone.utc`, which supports the declared Python 3.10 minimum.
+
+The test runner installs the system Tesseract executable and English/Polish language data before the OCR/web integration tests. The Python `ocr` extra supplies the wrapper only. On Debian/Ubuntu, install `tesseract-ocr tesseract-ocr-eng tesseract-ocr-pol` before running this suite locally.
