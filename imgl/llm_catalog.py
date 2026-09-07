@@ -6,6 +6,7 @@ import base64
 import json
 import os
 import re
+import sys
 from io import BytesIO
 from pathlib import Path
 from typing import Any
@@ -86,11 +87,19 @@ def llm_available() -> bool:
 
 
 def llm_dependencies_ok() -> tuple[bool, str | None]:
+    if sys.version_info < (3, 11):
+        return False, "SubLLM vision requires Python 3.11+"
     try:
-        import litellm  # type: ignore  # noqa: F401
+        _subllm_complete()
     except ImportError:
-        return False, "litellm not installed (pip install -e '.[llm]')"
+        return False, "subactor-subllm not installed (pip install -e '.[llm]')"
     return True, None
+
+
+def _subllm_complete():
+    from subllm import complete as subllm_complete
+
+    return subllm_complete
 
 
 def refine_catalog_with_llm(
@@ -219,12 +228,7 @@ def _call_vision_llm(
     crop_bbox: BBox | None = None,
     window_title: str | None = None,
 ) -> dict[str, Any]:
-    os.environ.setdefault("LITELLM_LOG", "ERROR")
-    import litellm  # type: ignore
-
-    litellm.set_verbose = False
-    if hasattr(litellm, "suppress_debug_info"):
-        litellm.suppress_debug_info = True
+    subllm_complete = _subllm_complete()
     image_b64 = _image_to_base64(image_path, crop_bbox=crop_bbox)
     scope_hint = (
         f"This image shows one application window{f' ({window_title})' if window_title else ''}. "
@@ -251,13 +255,15 @@ def _call_vision_llm(
             ],
         },
     ]
-    response = litellm.completion(
-        model=model,
-        messages=messages,
-        temperature=0.1,
+    api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+    response = subllm_complete(
+        "autogrammar-imgl",
+        "vision",
+        messages,
         response_format={"type": "json_object"},
+        credentials={"openrouter": api_key} if api_key else None,
     )
-    content = (response.choices[0].message.content or "").strip()
+    content = (response.content or "").strip()
     return _parse_json_payload(content)
 
 

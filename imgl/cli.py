@@ -331,7 +331,7 @@ def build_parser() -> argparse.ArgumentParser:
     interact_parser.add_argument(
         "--llm",
         action="store_true",
-        help="Use vision LLM catalog (requires OPENROUTER_API_KEY, pip install litellm)",
+        help="Use vision LLM catalog (requires OPENROUTER_API_KEY, pip install -e '.[llm]')",
     )
     interact_parser.add_argument(
         "--no-filter",
