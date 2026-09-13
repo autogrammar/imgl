@@ -230,3 +230,12 @@ __marimo__/
 .ai/
 .github/
 .nlp2dsl/
+
+# Canonical delivery worktrees and clone-local operational evidence.
+/.worktrees/
+/.subactor/leases/
+/.subactor/receipts/
+/.subactor/recovery/
+/.subactor/sessions/
+/.subactor/cache/
+/.subactor/snapshots/
