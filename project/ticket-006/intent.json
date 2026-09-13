@@ -10,7 +10,8 @@
     "imgl/llm_catalog.py",
     "pyproject.toml",
     "tests/test_llm_catalog.py",
-    "project/ticket-006/**"
+    "project/ticket-006/**",
+    "uv.lock"
   ],
   "forbiddenPaths": [
     "project/ticket-*/user-*.md"
@@ -18,6 +19,6 @@
   "delivery": {
     "acceptedBaseSha": "0edd1e6ef1906be6b3205f436ff1da72bde8fdac",
     "targetBranch": "main",
-    "outcome": "Publish the preserved PR #1 integration after full CI and independent review."
+    "outcome": "Publish the pending PR #1 application integration, reconcile its changed dependency with the existing locked Python matrix, and require independent review."
   }
 }
