@@ -124,3 +124,26 @@ def test_merge_heuristic_inputs_appends_missing_fields():
         for opt in inputs
         for term in ("Chat", "Terminal", "Pole", "Editor", "Input")
     )
+
+
+def test_call_vision_llm_uses_central_subllm(tmp_path: Path, monkeypatch):
+    from imgl import llm_catalog
+
+    captured: dict = {}
+    from PIL import Image
+
+    image = tmp_path / "shot.png"
+    Image.new("RGB", (8, 8), color=(255, 255, 255)).save(image)
+
+    def fake_complete(application, function, messages, **kwargs):
+        captured.update(application=application, function=function, messages=messages, kwargs=kwargs)
+        return type("Response", (), {"content": '{"elements":[]}'})()
+
+    monkeypatch.setenv("OPENROUTER_API_KEY", "sk-test")
+    monkeypatch.setattr(llm_catalog, "_subllm_complete", lambda: fake_complete)
+    payload = llm_catalog._call_vision_llm(str(image), model="ignored", max_elements=5)
+    assert payload == {"elements": []}
+    assert captured["application"] == "autogrammar-imgl"
+    assert captured["function"] == "vision"
+    assert captured["messages"][1]["content"][0]["type"] == "image_url"
+    assert captured["kwargs"]["credentials"] == {"openrouter": "sk-test"}

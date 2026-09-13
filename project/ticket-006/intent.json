@@ -1,0 +1,23 @@
+{
+  "schema": "new-project.intent/v3",
+  "ticket": "ticket-006",
+  "summary": "Publish the pending SubLLM vision integration from PR #1",
+  "workstream": "integration",
+  "allowedPaths": [
+    ".gitignore",
+    ".github/workflows/ci.yml",
+    "imgl/cli.py",
+    "imgl/llm_catalog.py",
+    "pyproject.toml",
+    "tests/test_llm_catalog.py",
+    "project/ticket-006/**"
+  ],
+  "forbiddenPaths": [
+    "project/ticket-*/user-*.md"
+  ],
+  "delivery": {
+    "acceptedBaseSha": "0edd1e6ef1906be6b3205f436ff1da72bde8fdac",
+    "targetBranch": "main",
+    "outcome": "Publish the preserved PR #1 integration after full CI and independent review."
+  }
+}
