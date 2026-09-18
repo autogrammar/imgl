@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -83,7 +83,7 @@ def scene_to_vql(
         "detect_source": scene.metadata.get("detect_source", ""),
         "ocr_backend": scene.metadata.get("ocr_backend", ""),
         "lang": scene.metadata.get("lang", ""),
-        "analyzed_at": datetime.now(UTC).isoformat(),
+        "analyzed_at": datetime.now(timezone.utc).isoformat(),
     }
     capture = scene.metadata.get("capture")
     if isinstance(capture, dict) and capture:

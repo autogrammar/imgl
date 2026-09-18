@@ -362,3 +362,7 @@ Zobacz [TODO.md](TODO.md).
 ## License
 
 Licensed under Apache-2.0.
+
+## Dependency maintenance
+
+See [dependency updates and Python tool groups](docs/dependencies.md) for locked tests, daily updates and freshness checks.
