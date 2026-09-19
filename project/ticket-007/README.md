@@ -1,30 +1,16 @@
-# Ticket 007: Add automatic Planfile GitHub synchronization
+# Ticket 001: Adopt wellmanifest/new-project 0.20.35
 
 - **ID**: ticket-007
-- **Owner**: unresolved:human
-- **Status**: DONE
-- **Workflow state**: DONE
-- **Created**: 2026-09-16
+- **Owner**: antigravity
+- **Status**: IN_PROGRESS
+- **Workflow state**: EDIT
+- **Created**: 2026-09-19
 
 ## Goal and scope
 
-Add the standard Planfile GitHub synchronization workflow to this repository
-as part of the fleet rollout authorized by the repository owner.
+Adopt wellmanifest/new-project standard 0.20.35 and configure canonical worktrees standard.
 
 ## Acceptance criteria
 
-- [x] AC-01: `.github/workflows/planfile-github-sync.yml` uses the reusable
-  workflow published by `semcod/planfile` at `v0.1.126`.
-- [x] AC-02: The workflow runs on repository schedule, on Planfile changes and
-  through manual dispatch, with read access to contents and write access to
-  Issues only.
-
-## Implementation scope
-
-This ticket adds `.github/workflows/planfile-github-sync.yml` using the
-reusable workflow published by `semcod/planfile` at `v0.1.126`.
-
-## Session authorization
-
-Fleet rollout continuation authorized by the repository owner
-(2026-09-16 session: continue and complete stalled automations).
+- [x] AC-01: Adopt new-project 0.20.35 governance files.
+- [x] AC-02: Governance checks pass cleanly.

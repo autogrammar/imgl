@@ -97,5 +97,11 @@ automation = {requires-python = ">=3.12"}
 automation = ["goal>=2.2.0"]
 
 [tool.pytest.ini_options]
+addopts = "-p wellmanifest_governance"
 # Test the repository-owned MCP adapter without installing the optional control stack.
 pythonpath = ["packages/mcp2imgl/src"]
+
+[tool.wellmanifest]
+standard = "0.20.35"
+revision = "cfaa0bf0ea6b0e7349fed0bb62b5ce15792d687d"
+gate = "project/governance-check.sh"

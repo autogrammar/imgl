@@ -1,6 +1,7 @@
 # Ticket 006: Publish pending SubLLM vision integration
 
-Status: IN_PROGRESS / PUBLICATION.
+- **Status**: DONE
+- **Workflow state**: PUBLICATION
 Allocation: https://github.com/autogrammar/imgl/issues/6.
 SESSION_EXECUTION_AUTHORIZATION: user requests continuing fleet repairs, push and protected merge.
 

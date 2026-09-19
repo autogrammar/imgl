@@ -239,3 +239,11 @@ __marimo__/
 /.subactor/sessions/
 /.subactor/cache/
 /.subactor/snapshots/
+
+!.github/
+!.github/**
+!.cursor/
+!.cursor/**
+!.cursor*
+!.aider*
+!.aider.conf.yml
