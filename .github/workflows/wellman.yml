@@ -23,11 +23,11 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           repository: wellmanifest/wellman
-          ref: 58d7ae1ba768ead256e0e9a05fd641a0d8faec28
+          ref: 73b4edcf3e74709734c755a4f68cbf328b7d6f5b
           path: .wellman-runtime
           persist-credentials: false
       - name: Verify the Wellman source revision
-        run: test "$(git -C .wellman-runtime rev-parse HEAD)" = '58d7ae1ba768ead256e0e9a05fd641a0d8faec28'
+        run: test "$(git -C .wellman-runtime rev-parse HEAD)" = '73b4edcf3e74709734c755a4f68cbf328b7d6f5b'
       - name: Validate adopted requirements and Docs metadata
         env:
           PYTHONPATH: ${{ github.workspace }}/.wellman-runtime/src

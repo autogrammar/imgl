@@ -20,8 +20,8 @@ def main():
         print(json.dumps({"valid": False, "findings": [{"code": "WELLMAN-ROOT", "message": str(error)}]}))
         return 1
     findings = []
-    if __version__ != "0.20.37":
-        findings.append({"code": "WELLMAN-VERSION", "message": "Install the pinned Wellman 0.20.37 runtime."})
+    if __version__ != "0.20.38":
+        findings.append({"code": "WELLMAN-VERSION", "message": "Install the pinned Wellman 0.20.38 runtime."})
     try:
         registration = register(root, standards=("wellmanifest/docs", "wellmanifest/agent"), dry_run=True)
         if registration["changed"]:
