@@ -24,8 +24,12 @@
     {
       "name": "test",
       "workflowFile": ".github/workflows/test-locked.yml"
+    },
+    {
+      "name": "metadata",
+      "workflowFile": ".github/workflows/wellman.yml"
     }
   ],
   "schema": "new-project.required-checks/v1",
-  "version": 1
+  "version": 2
 }
