@@ -1,0 +1,1 @@
+SESSION_EXECUTION_AUTHORIZATION: User requested sequential repairs, tests and protected publication. This application-owned ticket fixes the reproduced inherited collection-health failure blocking IMGL adoption, serialized after ticket-008 was checkpointed and its actual writer controller released.

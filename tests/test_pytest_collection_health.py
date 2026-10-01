@@ -49,5 +49,7 @@ def test_dsl2imgl_tests_skip_cleanly_when_not_installed():
     assert result.returncode in (0, 5), (
         f"unexpected exit code {result.returncode}:\n{result.stdout}"
     )
-    assert "error" not in result.stdout.lower()
+    # The governance plugin prints "0 errors" on success. Match the actual
+    # collection diagnostic; nonzero pytest exit codes remain failures above.
+    assert "error during collection" not in result.stdout.lower()
     assert "modulenotfounderror" not in result.stdout.lower()
