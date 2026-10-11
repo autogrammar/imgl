@@ -814,6 +814,11 @@ _COMMAND_HANDLERS = {
 
 
 def main(argv: list[str] | None = None) -> int:
+    try:
+        from .autoupdate import check_for_updates
+        check_for_updates("imgl")
+    except Exception:
+        pass
     parser = build_parser()
     args = parser.parse_args(argv)
     config = ImglConfig()
